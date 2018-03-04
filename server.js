@@ -29,4 +29,5 @@ function upload(req,res) {
 		res.end("{size:"+File["size"]+"}");
 	});
 }
-server.listen(3000);
+var port = process.env.PORT || 8080;
+server.listen(port);
