@@ -23,7 +23,10 @@ function show(req,res) {
 	res.end(html);
 }
 function upload(req,res) {
-	var form = formidable.IncomingForm();
+	var form = new formidable.IncomingForm({ 
+  		uploadDir: __dirname + '/uploads',  
+  		keepExtensions: true
+	});
 	form.parse(req,function(err,fields,files){
 		var File = files["file"];
 		res.end("{size:"+File["size"]+"}");
